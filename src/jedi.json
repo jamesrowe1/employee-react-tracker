@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Yoda",
+    "image": "https://imgix.bustle.com/uploads/image/2020/6/22/45f77ae7-5e63-4e5b-945c-0a8be6db519a-_87203734_alamy_yoda976.jpg?w=1200&h=630&q=70&fit=crop&crop=faces&fm=jpg",
+    "occupation": "Grand Master",
+    "originated": "Unknown"
+  },
+  {
+    "id": 2,
+    "name": "Mace Windu",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png/revision/latest/scale-to-width-down/500?cb=20150206140125",
+    "occupation": "Jedi Council Member",
+    "originated": "Haruun Kal"
+  },
+  {
+    "id": 3,
+    "name": "Qui-Gon Jinn",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/f6/Qui-Gon_Jinn_Headshot_TPM.jpg/revision/latest/scale-to-width-down/500?cb=20180430174809",
+    "occupation": "Jedi Master",
+    "originated": "Coruscant"
+  },
+  {
+    "id": 4,
+    "name": "Anakin Skywalker",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/6/6f/Anakin_Skywalker_RotS.png/revision/latest/scale-to-width-down/500?cb=20130621175844",
+    "occupation": "On the council, but not a master",
+    "originated": "Tatooine"
+  },
+  {
+    "id": 5,
+    "name": "Shaak Ti",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/2/20/Shaak_Ti_closeup-SWE.png/revision/latest?cb=20160914002036",
+    "occupation": "Jedi Council Member",
+    "location": "Shili"
+  },
+  {
+    "id": 6,
+    "name": "Ahsoka Tano",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/7a/AhsokaHS_Rebels.png/revision/latest/scale-to-width-down/350?cb=20161116040331",
+    "occupation": "Jedi Padawan",
+    "location": "Shili"
+  }
+]

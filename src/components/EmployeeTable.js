@@ -33,24 +33,48 @@ export class EmployeeTable extends Component {
         const searchVariable = event.target.value;
         // Updating the input's state
         console.log(searchField)
-        this.setState({
-          tempEmployees: this.state.employees.filter(employee => employee[searchField].includes(searchVariable.toLowerCase()))
+        if (searchField.indexOf(".")===-1) {
+            this.setState({
+                tempEmployees: this.state.employees.filter(employee => employee[searchField].toLowerCase().includes(searchVariable.toLowerCase()))
+              });
+        } else {
+            const [field, subfield] = searchField.split(".")
+            this.setState({tempEmployees: this.state.employees.filter(employee => employee[field][subfield].toLowerCase().includes(searchVariable.toLowerCase()))
         });
+        }
+        
       };
 
       sortByField = field => {
-        if (this.state.fieldName!==field) {
-          this.setState({
-            employees: this.state.employees.sort((a, b) => (a[field] > b[field]) ? 1: -1),
-            sorted: "desc",
-            fieldName: field
-          })
-          console.log(this.state.employees)
+        if (field.indexOf(".")===-1){
+            if (this.state.fieldName!==field || this.state.sorted==="asc") {
+            this.setState({
+                tempEmployees: this.state.employees.sort((a, b) => (a[field] > b[field]) ? 1: -1),
+                sorted: "desc",
+                fieldName: field
+            })
+            console.log(this.state.tempEmployees)
+            } else {
+            this.setState({
+                tempEmployees: this.state.employees.sort((a, b) => (a[field] < b[field]) ? 1: -1),
+                sorted: "asc"
+            })
+            }
         } else {
-          this.setState({
-            employees: this.state.employees.sort((a, b) => (a[field] < b[field]) ? 1: -1),
-            sorted: "asc"
-          })
+            const [fieldoutter, subfield] = field.split(".")
+            if (this.state.fieldName!==field || this.state.sorted==="asc") {
+                this.setState({
+                    tempEmployees: this.state.employees.sort((a, b) => (a[fieldoutter][subfield] > b[fieldoutter][subfield]) ? 1: -1),
+                    sorted: "desc",
+                    fieldName: field
+                })
+                console.log(this.state.tempEmployees)
+                } else {
+                this.setState({
+                    tempEmployees: this.state.employees.sort((a, b) => (a[fieldoutter][subfield] < b[fieldoutter][subfield]) ? 1: -1),
+                    sorted: "asc"
+                })
+                }
         }
       }
 
@@ -67,7 +91,7 @@ export class EmployeeTable extends Component {
           <label for="field">Choose a field:</label>
             <select id="fieldSelect" name="fieldSelect">
                 <option value="gender">Gender</option>
-                <option value="first">Name</option>
+                <option value="name.first">Name</option>
                 <option value="email">Email</option>
                 <option value="location.city">location</option>
             </select>
@@ -75,12 +99,12 @@ export class EmployeeTable extends Component {
         <thead>
           <tr>
             <th scope="col">
-              <button className="btn btn-primary" onClick={() => this.sortByField("id")}>
+              <button className="btn btn-primary" onClick={() => this.sortByField("gender")}>
                 Gender
               </button>
             </th>
             <th scope="col">
-              <button className="btn btn-primary" onClick={() => this.sortByField("name")}>
+              <button className="btn btn-primary" onClick={() => this.sortByField("name.first")}>
               Name
               </button>
             </th>
@@ -95,7 +119,7 @@ export class EmployeeTable extends Component {
               </button>
             </th>
             <th scope="col">
-              <button className="btn btn-primary" onClick={() => this.sortByField("location")}>
+              <button className="btn btn-primary" onClick={() => this.sortByField("location.city")}>
                 Location
               </button>
             </th>

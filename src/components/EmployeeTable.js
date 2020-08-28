@@ -90,22 +90,22 @@ export class EmployeeTable extends Component {
           />
           <label for="field">Choose a field:</label>
             <select id="fieldSelect" name="fieldSelect">
-                <option value="gender">Gender</option>
                 <option value="name.first">Name</option>
+                <option value="gender">Gender</option>
                 <option value="email">Email</option>
-                <option value="location.city">location</option>
+                <option value="location.city">Location</option>
             </select>
         <table className="table table-dark">
         <thead>
           <tr>
             <th scope="col">
-              <button className="btn btn-primary" onClick={() => this.sortByField("gender")}>
-                Gender
+              <button className="btn btn-primary" onClick={() => this.sortByField("name.first")}>
+              Name
               </button>
             </th>
             <th scope="col">
-              <button className="btn btn-primary" onClick={() => this.sortByField("name.first")}>
-              Name
+              <button className="btn btn-primary" onClick={() => this.sortByField("gender")}>
+                Gender
               </button>
             </th>
             <th scope="col">
@@ -130,8 +130,8 @@ export class EmployeeTable extends Component {
           {(this.state.employees.length) ?
             this.state.tempEmployees.map((employee, index) => (
                 <tr key={index}>
-                <th scope="row">{employee.gender}</th>
                 <td>{employee.name.first} {employee.name.last}</td>
+                <th scope="row">{employee.gender}</th>
                 <td><img alt={employee.name} src={employee.picture.thumbnail} /></td>
                 <td>{employee.email}</td>
                 <td>{employee.location.city}</td>

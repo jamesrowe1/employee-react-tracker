@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { Component } from "react";
 import './App.css';
-import EmployeeCard from "./components/EmployeeCard.js"
-import jedi from "./jedi.json"
+// import EmployeeCard from "./components/EmployeeCard.js"
+import EmployeeTable from "./components/EmployeeTable.js"
+// import jedi from "./jedi.json"
+// import API from "./utils/API";
+// import axios from "axios"
+class App extends Component {
 
-class App extends React.Component {
+  
+  
+  // componentDidMount() {
+  //   axios
+  //     .get("https://randomuser.me/api/?results=100")
+  //     .then((response) => {
+  //       console.log(response.data.results);
+  //       this.setState({
+  //         employees: response.data.results,
+  //         base: response.data.results,
+  //       });
+  //       console.log(this.state)
+  //     })
+  //     .catch((error) => console.warn(error.message));
+  // }
 
-  state = {
-    jedi,
-    sorted: "asc",
-    fieldName: "id",
-    viewableJedi: jedi
-  }
+
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -39,30 +52,21 @@ class App extends React.Component {
   }
 
   render() {
-
+    
+    
     return (
+      
     <div>
+      {console.log(this.state)}
       <div className="jumbotron jumbotron-fluid">
         <div className="container">
           <h1 className="display-4">Employee Directory</h1>
           <p className="lead">View all the employees!</p>
         </div>
-        <input
-            value={this.state.search}
-            name="search"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Search"
-          />
-          <label for="field">Choose a field:</label>
-            <select id="fieldSelect" name="fieldSelect">
-              {/* <option value="id">Id</option> */}
-              <option value="name">Name</option>
-              <option value="occupation">Occupation</option>
-              <option value="originated">Originated</option>
-            </select>
+        
       </div>
-      <table className="table table-dark">
+      <EmployeeTable />
+      {/* <table className="table table-dark">
         <thead>
           <tr>
             <th scope="col">
@@ -93,17 +97,17 @@ class App extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.viewableJedi.map(oneJedi => (
+          {this.state.employees.map(employee => (
             <EmployeeCard 
-              id={oneJedi.id}
-              name={oneJedi.name}
-              image={oneJedi.image}
-              occupation={oneJedi.occupation}
-              originated={oneJedi.originated}
+              gender={employee.gender}
+              name={employee.name.first}
+              image={employee.picture.thumbnail}
+              location={employee.location}
+              email={employee.email}
             />
           ))} 
         </tbody>
-      </table>
+      </table> */}
       </div>
     );
   }

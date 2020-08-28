@@ -32,13 +32,13 @@
     "name": "Shaak Ti",
     "image": "https://vignette.wikia.nocookie.net/starwars/images/2/20/Shaak_Ti_closeup-SWE.png/revision/latest?cb=20160914002036",
     "occupation": "Jedi Council Member",
-    "location": "Shili"
+    "originated": "Shili"
   },
   {
     "id": 6,
     "name": "Ahsoka Tano",
     "image": "https://vignette.wikia.nocookie.net/starwars/images/7/7a/AhsokaHS_Rebels.png/revision/latest/scale-to-width-down/350?cb=20161116040331",
     "occupation": "Jedi Padawan",
-    "location": "Shili"
+    "originated": "Shili"
   }
 ]

@@ -49,14 +49,14 @@ export class EmployeeTable extends Component {
         if (field.indexOf(".")===-1){
             if (this.state.fieldName!==field || this.state.sorted==="asc") {
             this.setState({
-                tempEmployees: this.state.employees.sort((a, b) => (a[field] > b[field]) ? 1: -1),
+                tempEmployees: this.state.tempEmployees.sort((a, b) => (a[field] > b[field]) ? 1: -1),
                 sorted: "desc",
                 fieldName: field
             })
             console.log(this.state.tempEmployees)
             } else {
             this.setState({
-                tempEmployees: this.state.employees.sort((a, b) => (a[field] < b[field]) ? 1: -1),
+                tempEmployees: this.state.tempEmployees.sort((a, b) => (a[field] < b[field]) ? 1: -1),
                 sorted: "asc"
             })
             }
@@ -64,14 +64,14 @@ export class EmployeeTable extends Component {
             const [fieldoutter, subfield] = field.split(".")
             if (this.state.fieldName!==field || this.state.sorted==="asc") {
                 this.setState({
-                    tempEmployees: this.state.employees.sort((a, b) => (a[fieldoutter][subfield] > b[fieldoutter][subfield]) ? 1: -1),
+                    tempEmployees: this.state.tempEmployees.sort((a, b) => (a[fieldoutter][subfield] > b[fieldoutter][subfield]) ? 1: -1),
                     sorted: "desc",
                     fieldName: field
                 })
                 console.log(this.state.tempEmployees)
                 } else {
                 this.setState({
-                    tempEmployees: this.state.employees.sort((a, b) => (a[fieldoutter][subfield] < b[fieldoutter][subfield]) ? 1: -1),
+                    tempEmployees: this.state.tempEmployees.sort((a, b) => (a[fieldoutter][subfield] < b[fieldoutter][subfield]) ? 1: -1),
                     sorted: "asc"
                 })
                 }
